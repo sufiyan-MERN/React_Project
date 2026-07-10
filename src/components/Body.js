@@ -1,9 +1,12 @@
 import ResturantCard from "./RestaurantCard";
 import { restaurantArr } from "../utils/mockdata";
+import Shimmer from "./Shimmer";
 
 function Body() {
   return (
     <div className="body">
+      <Shimmer />
+
       <div className="categories">
         <div className="categories-list" id="burger">
           <img src="https://ik.imagekit.io/sufiyanImages/images_q=tbn:ANd9GcTGNAoEKWGZpxpt5j1CcTmjQxSIpiJAxMwx45NOLeYCIA&s=10" />
