@@ -1,7 +1,3 @@
-import React from "react";
-import ReactDom from "react-dom/client";
-import App from "./src/App";
-
 function ResturantCard({ data }) {
   // console.log(data.resName);
 
@@ -23,5 +19,4 @@ function ResturantCard({ data }) {
   );
 }
 
-const root = ReactDom.createRoot(document.querySelector("#root"));
-root.render(<App />);
+export default ResturantCard;

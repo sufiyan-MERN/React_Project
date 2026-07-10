@@ -3,7 +3,7 @@
   height: 40px;
   /* border-radius: 100%; */
   border: 1px solid rgb(97, 96, 96);
-  border-radius: 50px;
+  border-radius: 30px;
 }
 .header {
   display: flex;
@@ -11,6 +11,7 @@
   justify-content: space-between;
   background-color: rgba(119, 245, 119, 0.658);
   align-items: center;
+  border-radius: 15px;
 }
 .nav-links ul {
   justify-content: space-between;
@@ -43,6 +44,7 @@
   background-color: rgba(118, 248, 124, 0.911);
   /* height: 500px; */
   width: 100%;
+  border-radius: 15px;
 }
 .categories {
   background-color: rgba(123, 192, 134, 0.733);
@@ -51,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  
+  border-radius: 15px;
 }
 .categories-list {
   background-color: aliceblue;
