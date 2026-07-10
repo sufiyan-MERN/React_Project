@@ -1,12 +1,34 @@
 import ResturantCard from "./RestaurantCard";
 import { restaurantArr } from "../utils/mockdata";
 import Shimmer from "./Shimmer";
+import { swiggyURL } from "../utils/constants";
+import { useEffect, useState } from "react";
 
 function Body() {
+  const [swiggyRes, setswiggyRes] = useState(null);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const response = await fetch(swiggyURL);
+    const data = await response.json();
+    console.log(
+      data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
+    setswiggyRes(
+      data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
+    console.log("hi", swiggyRes);
+  };
+
+  if (swiggyRes == null) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="body">
-      <Shimmer />
-
       <div className="categories">
         <div className="categories-list" id="burger">
           <img src="https://ik.imagekit.io/sufiyanImages/images_q=tbn:ANd9GcTGNAoEKWGZpxpt5j1CcTmjQxSIpiJAxMwx45NOLeYCIA&s=10" />
@@ -27,9 +49,17 @@ function Body() {
           <img src="https://ik.imagekit.io/sufiyanImages/ramen-noodle-egg-meat-with-chopstick-cartoon_138676-2543.jpg_semt=ais_hybrid&w=740&q=80"></img>
         </div>
       </div>
+      {/* <button onClick={getData}>getdata</button> */}
+
       <div className="res-container">
-        {restaurantArr.map((food) => {
+        {/* {restaurantArr.map((food) => {
           return <ResturantCard key={food.id} data={food} />;
+        })} */}
+
+        {swiggyRes.map((resDetails) => {
+          return (
+            <ResturantCard data={resDetails?.info} key={resDetails?.info?.id} />
+          );
         })}
       </div>
     </div>
