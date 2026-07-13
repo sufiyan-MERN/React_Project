@@ -1,27 +1,43 @@
 import React from "react";
 import ReactDom from "react-dom/client";
 import App from "./src/App";
+import About from "./src/components/About";
+import Contact from "./src/components/Contact";
+import Body from "./src/components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./src/components/Home";
+import Cart from "./src/components/Cart";
+import Error from "./src/components/Error";
 
-function ResturantCard({ data }) {
-  // console.log(data.resName);
-
-  return (
-    <div className="res-card">
-      <img
-        className="res-img"
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${data.imgId}`}
-      />
-      <h3 className="title">{data.resName}</h3>
-      <p>{data.cuisine + ","}</p>
-      <h4 className="location">{data.location}</h4>
-      <p>
-        ⭐{data.avgRating} Ratings | {data.delieveryTime}
-        {"mins"}
-      </p>
-      <h4> {data.costForTwo} </h4>
-    </div>
-  );
-}
+const AppRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
 
 const root = ReactDom.createRoot(document.querySelector("#root"));
-root.render(<App />);
+root.render(<RouterProvider router={AppRouter} />);
