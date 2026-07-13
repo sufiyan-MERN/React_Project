@@ -1,8 +1,10 @@
+import { logoURL } from "../utils/constants";
+
 function Header() {
   return (
     <div className="header">
-      <div id="header-logo">
-        <img src="https://ik.imagekit.io/sufiyanImages/299-2993275_food-order-icon-food-order-logo.png" />
+      <div className="header-logo">
+        <img src={logoURL} />
       </div>
 
       <div className="search-bar">

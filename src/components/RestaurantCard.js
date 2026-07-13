@@ -22,7 +22,9 @@ function ResturantCard({ data }) {
       <h3 className="title">{name}</h3>
       <p>{cuisines}</p>
       <h4 className="location">{locality}</h4>
-      <p>⭐{avgRating} Ratings |mins</p>
+      <p>
+        ⭐{avgRating} Ratings | {sla.deliveryTime} mins
+      </p>
       <h4> {costForTwo} </h4>
     </div>
   );

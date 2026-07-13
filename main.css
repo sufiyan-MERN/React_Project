@@ -1,15 +1,21 @@
-#header-logo img {
-  width: 70px;
-  height: 40px;
-  /* border-radius: 100%; */
-  border: 1px solid rgb(97, 96, 96);
-  border-radius: 30px;
+.header-logo {
+  width: 50px;
+  height: 45px;
+  /* border-radius: 20px; */
+  padding: 5px;
 }
+
+.header-logo img {
+  width: inherit;
+  height: inherit;
+  border-radius: 15px;
+}
+
 .header {
   display: flex;
   height: 50px;
   justify-content: space-between;
-  background-color: rgba(119, 245, 119, 0.658);
+  background-color: rgb(124, 233, 142);
   align-items: center;
   border-radius: 15px;
 }
@@ -45,6 +51,7 @@
   /* height: 500px; */
   width: 100%;
   border-radius: 15px;
+  /* background-image: url("https://ik.imagekit.io/sufiyanImages/images_q=tbn:ANd9GcTeqMiB4ifNkhLiSCNjN8DJF4ueXf6osBeQR08U5gmjsQ&s=10"); */
 }
 .categories {
   background-color: rgba(123, 192, 134, 0.733);
@@ -179,5 +186,22 @@
   background-color: lightgreen;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 100px;
+  /* height: 45px; */
+  align-items: center;
+  /* border-radius: 20px; */
+  padding: 5px;
+  display: flex;
+}
+
+.footer-logo img {
+  width: 80px;
+  height: inherit;
+  border-radius: 15px;
+  margin: 10px;
 }
