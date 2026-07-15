@@ -4,9 +4,11 @@ import { logoURL } from "../utils/constants";
 function Header() {
   return (
     <div className="header">
-      <div className="header-logo">
-        <img src={logoURL} />
-      </div>
+      <Link to={"/"}>
+        <div className="header-logo">
+          <img src={logoURL} />
+        </div>
+      </Link>
 
       <div className="search-bar">
         <input type="text" placeholder="search here!"></input>

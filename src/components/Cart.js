@@ -25,19 +25,19 @@ const Cart = () => {
           borderRadius: "8px",
         }}
       >
-        <div className="cart-items-list" style={{ textAlign: "center" }}>
+        <div className="cart-items-list">
           <h4>Item 1</h4>
         </div>
-        <div className="cart-items-list" style={{ textAlign: "center" }}>
+        <div className="cart-items-list">
           <h4>Item 2</h4>
         </div>
-        <div className="cart-items-list" style={{ textAlign: "center" }}>
+        <div className="cart-items-list">
           <h4>Item 3</h4>
         </div>
-        <div className="cart-items-list" style={{ textAlign: "center" }}>
+        <div className="cart-items-list">
           <h4>Item 4</h4>
         </div>
-        <div className="cart-items-list" style={{ textAlign: "center" }}>
+        <div className="cart-items-list">
           <h4>Item 5</h4>
         </div>
       </div>

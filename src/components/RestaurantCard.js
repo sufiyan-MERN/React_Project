@@ -20,8 +20,8 @@ function ResturantCard({ data }) {
         src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
       />
       <h3 className="title">{name}</h3>
-      <p>{cuisines}</p>
-      <h4 className="location">{locality}</h4>
+      <p className="res-card-cuisines">{cuisines?.join(", ")}</p>
+      {/* <h4 className="location">{locality}</h4> */}
       <p>
         ⭐{avgRating} Ratings | {sla.deliveryTime} mins
       </p>

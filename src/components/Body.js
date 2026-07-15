@@ -3,6 +3,7 @@ import { restaurantArr } from "../utils/mockdata";
 import Shimmer from "./Shimmer";
 import { swiggyURL } from "../utils/constants";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 function Body() {
   const [swiggyRes, setswiggyRes] = useState(null);
@@ -49,16 +50,16 @@ function Body() {
           <img src="https://ik.imagekit.io/sufiyanImages/ramen-noodle-egg-meat-with-chopstick-cartoon_138676-2543.jpg_semt=ais_hybrid&w=740&q=80"></img>
         </div>
       </div>
-      {/* <button onClick={getData}>getdata</button> */}
-
       <div className="res-container">
-        {/* {restaurantArr.map((food) => {
-          return <ResturantCard key={food.id} data={food} />;
-        })} */}
-
         {swiggyRes.map((resDetails) => {
           return (
-            <ResturantCard data={resDetails?.info} key={resDetails?.info?.id} />
+            <Link
+              className="res-menu-card"
+              to={`/restaurantMenu/${resDetails?.info?.id}`}
+              key={resDetails?.info?.id}
+            >
+              <ResturantCard data={resDetails?.info} />
+            </Link>
           );
         })}
       </div>
