@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import { logoURL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 function Header() {
+  const isOnline = useOnlineStatus();
+
   return (
     <div className="header">
       <Link to={"/"}>
@@ -15,8 +18,12 @@ function Header() {
       </div>
       <div className="nav-links">
         <ul>
+          {isOnline ? <li>🟢 Online</li> : <li> 🔴 Offline</li>}
           <li>
             <Link to={"/home"}>Home </Link>
+          </li>
+          <li>
+            <Link to={"/grocery"}>Grocery</Link>
           </li>
           <li>
             <Link to={"/about"}>About-us</Link>
