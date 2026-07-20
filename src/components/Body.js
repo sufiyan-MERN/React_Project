@@ -2,11 +2,14 @@ import ResturantCard from "./RestaurantCard";
 import { restaurantArr } from "../utils/mockdata";
 import Shimmer from "./Shimmer";
 import { swiggyURL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
+import hotelListContext from "../utils/HotelListContext";
 
 function Body() {
-  const [swiggyRes, setswiggyRes] = useState(null);
+  // const [swiggyRes, setswiggyRes] = useState(null);
+
+  const { swiggyRes, setswiggyRes,setAllItems } = useContext(hotelListContext);
 
   useEffect(() => {
     getData();
@@ -21,6 +24,7 @@ function Body() {
     setswiggyRes(
       data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,
     );
+    setAllItems(data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,)
     console.log("hi", swiggyRes);
   };
 

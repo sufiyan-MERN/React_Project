@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import { logoURL } from "../utils/constants";
+import Usercontext from "../utils/useContext";
 
 function Footer() {
+  const context = useContext(Usercontext);
+
   return (
     <div className="footer">
       <div className="footer-logo">
+        <h3> {context.email} </h3>
+
         <img src={logoURL} />
         <h4>@2026 Marvel Limited</h4>
       </div>

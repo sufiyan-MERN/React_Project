@@ -1,8 +1,34 @@
 import { Link } from "react-router";
 import { logoURL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext, useState } from "react";
+import Usercontext from "../utils/useContext";
+import hotelListContext from "../utils/HotelListContext";
 
 function Header() {
+  const context = useContext(Usercontext);
+
+  const { swiggyRes, setswiggyRes, allItems } = useContext(hotelListContext);
+  const [filterToggle, setFilterToggle] = useState(false);
+  const setFilter = () => {
+    console.log("button clicked");
+
+    if (!filterToggle) {
+      const filterArray = swiggyRes.filter((restaurant) => {
+        if (restaurant.info.avgRating > 4.5) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      setswiggyRes(filterArray);
+      setFilterToggle(!filterToggle);
+    } else {
+      setswiggyRes(allItems);
+      setFilterToggle(!filterToggle);
+    }
+  };
+
   const isOnline = useOnlineStatus();
 
   return (
@@ -14,11 +40,33 @@ function Header() {
       </Link>
 
       <div className="search-bar">
-        <input type="text" placeholder="search here!"></input>
+        <input
+          type="text"
+          placeholder="search here!"
+          onChange={(e) => {
+            const filterList = allItems.filter((restaurant) => {
+              if (
+                restaurant.info.name.toLowerCase().includes(e.target.value) ==
+                true
+              ) {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            setswiggyRes(filterList);
+          }}
+        ></input>
       </div>
       <div className="nav-links">
         <ul>
           {isOnline ? <li>🟢 Online</li> : <li> 🔴 Offline</li>}
+
+          <li>
+            <button className="filter-btn" onClick={setFilter}>
+              {filterToggle ? "top rated restaurant" : "show all restaurant"}
+            </button>
+          </li>
           <li>
             <Link to={"/home"}>Home </Link>
           </li>
@@ -37,6 +85,7 @@ function Header() {
           <li>
             <Link to={"/cart"}>Cart</Link>
           </li>
+          <li>{context.name}</li>
         </ul>
       </div>
     </div>
