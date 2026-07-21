@@ -64,7 +64,7 @@ function Header() {
 
           <li>
             <button className="filter-btn" onClick={setFilter}>
-              {filterToggle ? "top rated restaurant" : "show all restaurant"}
+              {filterToggle ? "show all restaurants" : "top rated restaurant"}
             </button>
           </li>
           <li>

@@ -11,7 +11,7 @@ function ResturantCard({ data }) {
     cloudinaryImageId,
   } = data;
 
-  // console.log(data.resName);
+  // console.log("data", data);
 
   return (
     <div className="res-card">

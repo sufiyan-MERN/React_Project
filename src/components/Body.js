@@ -9,7 +9,8 @@ import hotelListContext from "../utils/HotelListContext";
 function Body() {
   // const [swiggyRes, setswiggyRes] = useState(null);
 
-  const { swiggyRes, setswiggyRes,setAllItems } = useContext(hotelListContext);
+  const { swiggyRes, setswiggyRes, setAllItems } = useContext(hotelListContext);
+
 
   useEffect(() => {
     getData();
@@ -24,7 +25,9 @@ function Body() {
     setswiggyRes(
       data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,
     );
-    setAllItems(data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,)
+    setAllItems(
+      data.data.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants,
+    );
     console.log("hi", swiggyRes);
   };
 
@@ -56,6 +59,7 @@ function Body() {
       </div>
       <div className="res-container">
         {swiggyRes.map((resDetails) => {
+          console.log("resdetails", resDetails);
           return (
             <Link
               className="res-menu-card"
@@ -63,6 +67,7 @@ function Body() {
               key={resDetails?.info?.id}
             >
               <ResturantCard data={resDetails?.info} />
+              
             </Link>
           );
         })}
