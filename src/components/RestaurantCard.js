@@ -15,17 +15,25 @@ function ResturantCard({ data }) {
 
   return (
     <div className="res-card">
-      <img
-        className="res-img"
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
-      />
-      <h3 className="title">{name}</h3>
-      <p className="res-card-cuisines">{cuisines?.join(", ")}</p>
-      {/* <h4 className="location">{locality}</h4> */}
-      <p>
-        ⭐{avgRating} Ratings | {sla.deliveryTime} mins
-      </p>
-      <h4> {costForTwo} </h4>
+      <div className="res-img-wrap">
+        <img
+          className="res-img"
+          src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+          alt={name}
+        />
+      </div>
+
+      <div className="res-card-body">
+        <h3 className="title">{name}</h3>
+        <p className="res-card-cuisines">{cuisines?.join(", ")}</p>
+
+        <div className="res-meta">
+          <span className="rating-pill">⭐ {avgRating}</span>
+          <span>{sla?.deliveryTime} mins</span>
+        </div>
+
+        <h4 className="res-cost">{costForTwo}</h4>
+      </div>
     </div>
   );
 }

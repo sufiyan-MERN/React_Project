@@ -85,7 +85,7 @@ function Header() {
           <li>
             <Link to={"/cart"}>Cart</Link>
           </li>
-          <li>{context.name}</li>
+          <div className="profile-logo"><li>{context.name}</li></div>
         </ul>
       </div>
     </div>

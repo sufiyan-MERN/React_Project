@@ -16,7 +16,7 @@ function App() {
     const randomTrue = Math.random() < 0.3;
 
     if (!randomTrue) {
-      setName("guest");
+      setName("");
       setEmail("guest@gmial.com");
       return;
     }
