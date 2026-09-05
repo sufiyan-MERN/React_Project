@@ -10,7 +10,7 @@ import Cart from "./src/components/Cart";
 import Error from "./src/components/Error";
 // import RestaurentPage from "./src/components/restaurantpage";
 import RestaurantMenu from "./src/components/RestaurantMenu";
-import Grocery from "./src/components/Grocery";
+// import Grocery from "./src/components/Grocery";
 
 const Grocery = lazy(() => {
   import("./src/components/Grocery");
